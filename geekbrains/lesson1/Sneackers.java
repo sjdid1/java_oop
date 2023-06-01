@@ -22,6 +22,14 @@ public class Sneackers extends Product{
         this.fatСontent = fatСontent;
     }
 
+    public int getCalories() {
+        return calories;
+    }
+
+    public void setCalories(int calories) {
+        this.calories = calories;
+    }
+
     public Sneackers(String brand, String name, double price, double volume, int fatСontent) {
         super(brand, name, price);
         this.volume = volume;
