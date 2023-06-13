@@ -49,7 +49,21 @@ public class BookingView implements View {
      * @param name имя
      */
     public void changeReservationTable(int oldReservation, Date reservationDate, int tableNo, String name){
-
+        try {
+            int newReservationId = tableModel.reservationTable(reservationDate, tableNo, name);
+            tableModel.cancelReservation(oldReservation);
+            printChangeReservationTableResult(newReservationId);
+        } catch (RuntimeException e) {
+            printChangeReservationTableError(e.getMessage());
+        }
+    }
+    
+    public void printChangeReservationTableResult(int reservationNo) {
+        System.out.printf("Столик успешно перебронирован. Номер вашей новой брони: #%d\n", reservationNo);
+    }
+    
+    public void printChangeReservationTableError(String errorMessage) {
+        System.out.printf("Невозможно перебронировать столик. \n%s\n", errorMessage);
     }
 
 }
