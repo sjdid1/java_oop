@@ -1,4 +1,4 @@
-package ru.geekbrains.lesson7.observer;
+package geekbrains.lesson7.observer;
 
 public interface Publisher {
 

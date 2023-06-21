@@ -1,4 +1,4 @@
-package ru.geekbrains.lesson7.adapter;
+package geekbrains.lesson7.adapter;
 
 public class Program {
 

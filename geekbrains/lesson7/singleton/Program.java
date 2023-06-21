@@ -1,4 +1,4 @@
-package ru.geekbrains.lesson7.singleton;
+package geekbrains.lesson7.singleton;
 
 public class Program {
 

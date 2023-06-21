@@ -1,4 +1,4 @@
-package ru.geekbrains.lesson7.observer;
+package geekbrains.lesson7.observer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,9 +19,19 @@ public class JobAgency implements Publisher {
     }
 
     @Override
-    public void sendOffer(String companyName, double salary) {
-        for (Observer observer: observers) {
-            observer.receiveOffer(companyName, salary);
-        }
-    }
+    public void sendOffer(String companyName, Vacancy vacancy) {
+        String companyVacancy = vacancy.getVacancyName().getVacancy();
+        System.out.println("ВАКАНСИЯ " + companyVacancy);
+            for (Observer observer: observers) {
+                if (vacancy.isRelevance()
+                        && companyVacancy.equalsIgnoreCase(observer.getVacancyName())
+                    ) {
+                    observer.receiveOffer(companyName, vacancy.getMaxSalary(), companyVacancy);
+                    if (observer.takeJob(companyVacancy)){
+                        removeObserver(observer);
+                        break;
+                    }
+                }
+            }
+}
 }

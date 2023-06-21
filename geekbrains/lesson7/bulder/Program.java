@@ -1,4 +1,4 @@
-package ru.geekbrains.lesson7.bulder;
+package geekbrains.lesson7.bulder;
 
 public class Program {
 
